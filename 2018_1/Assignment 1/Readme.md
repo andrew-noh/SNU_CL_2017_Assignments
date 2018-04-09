@@ -1,4 +1,4 @@
-#Assignment 1: 
+# Assignment 1: 
 
 Brown Corpus 중에서 일부를 발췌한 BROWN_A1 코퍼스를 이용하여  이용하여 'I think I will get the best score in the class" 라는 문장의 확률을 출력하는 프로그램을 작성하라.
 
