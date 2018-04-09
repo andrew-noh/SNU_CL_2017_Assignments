@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Assignment2: Simple Neural Net 구현</title>
+  </head>
+  <body>
+<h3 align="center"><font size="3" face="Trebuchet MS">Assignment 2: Simple Neural Network 구현</font></h3>
+    <p><font size="3" face="Trebuchet MS">&nbsp; <br>
+    &nbsp;MNIST Dataset을 응용한 간단한 Neural Network 구현<br>
+    &nbsp;&nbsp; 개요:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 1. 교재 100페이지에 있는 ch03/neuralnet_mnist.py를
+    이용하여 다음의 간단한 three layer&nbsp;SimpleNeuralNetYourID.py를 완성하라.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 2. 샘플데이터 <a href="SimpleNetData.csv">SimpleNetData.csv</a>는 5000*13 배열로 임의의
+    값이 채워져 있는 파일이다. 이 파일의 마지막 열(13열)은 12열에 대한 0-9 사이의 정답 숫자로 되어 있다. 이
+    파일을 읽어서&nbsp; x_train, y_train으로 불러들인다. x_train은 (5000, 12) 형태의 배열로
+    y_train은 (5000,)의 정답으로 된 배열이다. <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 3. 이 simple forward network은 손실함수도 구현되지 않은 기본 단계라 성능이 낮을 것임. 앞으로 계속 발전시켜 성능을 향상 시키는 것이 목표. 우선&nbsp;제시된 함수를 완성하여 그 정확도를 출력하는 프로그램을
+    완성하라 <br>
+    <br>
+    import sys, os<br>
+    sys.path.append(os.pardir)<br>
+    from csv import reader<br>
+    import numpy as np</font></p>
+<p><font size="3" face="Trebuchet MS"><br>
+    # Load a CSV file<br>
+    def load_csv(filename):<br>
+    &nbsp;&nbsp;&nbsp; x_train = list()<br>
+    &nbsp;&nbsp;&nbsp; y_train = list()<br>
+    &nbsp;&nbsp;&nbsp; with open(filename, 'r') as file:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; csv_reader = reader(file)<br>
+    &nbsp;&nbsp;&nbsp; </font><font size="3" face="Trebuchet MS" color="red">(여기에 코드 작성)<br>
+      &nbsp;&nbsp;&nbsp; 읽어 온 자료를 numpy 배열로 바꾸고 이 때 x_train과 y_train은 각각
+      float형과 int형으로 한다.<br>
+      &nbsp;&nbsp;&nbsp; 참고: 강의 자료 중 </font><font size="3" face="Trebuchet MS"><br>
+    </font><a
+href="https://machinelearningmastery.com/implement-simple-linear-regression-scratch-python/"
+        style="color: rgb(0, 136, 204); text-decoration: none;
+        font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial,
+        sans-serif; font-size: 13px; font-style: normal;
+        font-variant-caps: normal; font-weight: normal; letter-spacing:
+        normal; orphans: auto; text-align: left; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: auto;
+        word-spacing: 0px; -webkit-text-size-adjust: auto;
+        -webkit-text-stroke-width: 0px;"><font size="3" face="Trebuchet MS" color="blue">How to Implement Simple Linear Regression From
+          Scratch with Python</font></a><font size="3" face="Trebuchet MS" color="red"> 참조<br>
+      <br>
+    </font><font size="3" face="Trebuchet MS">&nbsp;&nbsp;&nbsp; return x_train, y_train<br>
+    <br>
+    def one_hot_encoding(x):<br>
+    &nbsp;<br>
+    &nbsp; &nbsp; &nbsp;</font><font size="3" face="Trebuchet MS" color="red"> y_train 정답 값을 one-hot
+      encoding으로 변형. sklearn, pandas, keras 등에서 제공하는 모듈을 쓰지말고 numpy로 구현해
+      볼 것&nbsp; <br>
+    </font><font size="3" face="Trebuchet MS"><br>
+    def init_network(input_size, hidden_size, output_size):<br>
+</font></p>
+<p><font size="3" face="Trebuchet MS">    &nbsp;&nbsp;&nbsp; network = {}<br>
+    &nbsp;&nbsp;&nbsp; weight_int_std = 0.01<br>
+    &nbsp;&nbsp;&nbsp; network['W1'] = weight_int_std *
+    np.random.randn(input_size, hidden_size)<br>
+    &nbsp;&nbsp;&nbsp; network['b1'] = np.zeros(hidden_size)<br>
+    &nbsp;&nbsp;&nbsp; network['W2'] = weight_int_std *
+    np.random.randn(hidden_size, hidden_size)<br>
+    &nbsp;&nbsp;&nbsp; network['b2'] = np.zeros(hidden_size)<br>
+    &nbsp;&nbsp;&nbsp; network['W3'] = weight_int_std *
+    np.random.randn(hidden_size, output_size)<br>
+    &nbsp;&nbsp;&nbsp; network['b3'] = np.zeros(output_size)<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; return network<br>
+    <br>
+    def predict(network, x):<br>
+    &nbsp;&nbsp;&nbsp; W1, W2, W3 = network['W1'], network['W2'],
+    network['W3']<br>
+    &nbsp;&nbsp;&nbsp; b1, b2, b3 = network['b1'], network['b2'],
+    network['b3']<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; </font><font size="3" face="Trebuchet MS" color="red">Weight와 bias를 내적한 후
+      sigmoid로 활성화, 마지막에는 softmax로 확률을 구함</font><font size="3" face="Trebuchet MS"><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; return y<br>
+    <br>
+    def accuracy(x, t): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#x는 자료에서 예측된 값&nbsp;t는 정답으로 주어진 값<br>
+&nbsp;    &nbsp;&nbsp;&nbsp; y = predict(network,x)<br>
+    &nbsp;&nbsp;&nbsp; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; </font><font size="3" face="Trebuchet MS" color="red">예측된 값과
+      one_hot_encoding으로 된 y_train값을 비교하여 정확도를 출력</font><font size="3" face="Trebuchet MS"><br>
+    <br>
+    &nbsp;&nbsp;&nbsp; return accuracy<br>
+    <br>
+    <br>
+    def sigmoid(x):<br>
+    &nbsp;&nbsp;&nbsp; return 1 / (1 + np.exp(-x))<br>
+    <br>
+    def softmax(x):<br>
+    &nbsp;&nbsp;&nbsp; if x.ndim == 2:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = x.T<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = x - np.max(x, axis=0)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y = np.exp(x) /
+    np.sum(np.exp(x), axis=0)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return y.T<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; x = x - np.max(x) # 오버플로 대책<br>
+    &nbsp;&nbsp;&nbsp; return np.exp(x) / np.sum(np.exp(x))<br>
+    <br>
+    <br>
+    filename = 'SimpleNetData.csv'<br>
+    x_train, y_train = load_csv(filename)<br>
+    y_train = one_hot_encoding(y_train)<br>
+    <br>
+    network = init_network(len(x_train[1]), 100, 10)<br>
+<br>
+    accuracy = accuracy(x_train, y_train)<br>
+    <br>
+    print (accuracy)<br>
+    <br>
+</font></p>
+  </body>
+</html>

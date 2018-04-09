@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Assignment2: Simple Neural Net 구현</title>
+  </head>
+  <body>
+<h3 align="center"><font size="3" face="Trebuchet MS">Assignment 3: Simple Neural Network - gradient 적용 업그레이드</font></h3>
+<p><font size="3" face="Trebuchet MS">&nbsp; <br>
+    &nbsp;Assignment2에서 구현한 간단한 &nbsp;Neural Network 모델에 Gradient Descent를 적용하여 성능 향상을 시킨 버전 구현 <br>
+    &nbsp;&nbsp; 개요:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 1. 이번에 사용할 자료는 과제 2에서 좀 더 발전 시킨 <a href="SimpleNetData2.csv">SimpleNetData2.csv</a> 로 </font><font size="3" face="Trebuchet MS" color="red">10000*201</font><font size="3" face="Trebuchet MS"> 배열로 되어 있다. 이 행렬의 마지막 열은 이전과 마찬가지로 0-9 사이의 정답 숫자로 되어 있다. .<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 2. 과제2를&nbsp;발전시켜&nbsp;교재&nbsp;137페이지에&nbsp;있는&nbsp;class&nbsp;TwoLayerNet을&nbsp;그대로&nbsp;사용하라.&nbsp;이&nbsp;class를&nbsp;위한&nbsp;관련&nbsp;모듈과&nbsp;함수는&nbsp;import&nbsp;하지&nbsp;말고&nbsp;한&nbsp;프로그램에&nbsp;같이&nbsp;명시하라&nbsp;(softmax,&nbsp;gradient&nbsp;등)    &nbsp;</font></p>
+<p><font size="3" face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. load_csv 모듈은 이제 SimpleNetData2.csv 자료를 80%는 training으로 20%는 test자료로 랜덤하게 분할하도록 한다. &nbsp;<br>
+</font></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<font face="Trebuchet MS">&nbsp;4. </font><font face="Trebuchet MS" color="red">filename: Assginment3_yourhakbun.py</font></p>
+<p>(교재 100page, 또는 <A href="https://github.com/WegraLee/deep-learning-from-scratch"><FONT face="Trebuchet MS" size="3">Deep Learning From Scratch source codes</FONT></A><FONT face="Trebuchet MS" size="3"> 의 ch04/two_layer_net.py)</FONT><FONT face="Trebuchet MS" size="3"> </FONT></p>
+<p><font size="3" face="Trebuchet MS">import sys, os<br>
+    sys.path.append(os.pardir)<br>
+    from csv import reader<br>
+import numpy as np </font></p>
+<p><font size="3" face="Trebuchet MS">class TwoLayerNet:</font></p>
+<p>&nbsp;<font size="3" face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, input_size, hidden_size, output_size, weight_init_std = 0.01): </font><font face="Trebuchet MS"></font></p>
+<p><font size="3" face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;def predict(self, x): </font><font face="Trebuchet MS"></font></p>
+<p><font size="3" face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;def loss(self, x, t): </font><font face="Trebuchet MS"></font></p>
+<p><font size="3" face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;def accuracy(self, x, t): def gradient(self, x, t):</font><font face="Trebuchet MS"></font></p>
+<p><font face="Trebuchet MS">&nbsp;</font><font size="3" face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#교재의 numerical_gradient는 사용하지 말 것.</font><font face="Trebuchet MS"></font></p>
+<p><font face="Trebuchet MS">&nbsp;</font><font size="3" face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Trebuchet MS">def gradient(self, x, t):</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;W1, W2 = self.params['W1'], self.params['W2']</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b1, b2 = self.params['b1'], self.params['b2']</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grads = {}</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;batch_num = x.shape[0]</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# forward</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a1 = np.dot(x, W1) + b1</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;z1 = sigmoid(a1)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a2 = np.dot(z1, W2) + b2</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y = softmax(a2)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# backward</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dy = (y - t) / batch_num</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grads['W2'] = np.dot(z1.T, dy)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grads['b2'] = np.sum(dy, axis=0)</font></p>
+<p><font face="Trebuchet MS">&nbsp;</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;da1 = np.dot(dy, W2.T)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dz1 = sigmoid_grad(a1) * da1</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grads['W1'] = np.dot(x.T, dz1)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grads['b1'] = np.sum(dz1, axis=0)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return grads</font></p>
+<p>&nbsp;</p>
+<p><font size="3" face="Trebuchet MS"># Load a CSV file<br>
+    def load_csv(filename):<br>
+    &nbsp;&nbsp;&nbsp; </font><font size="3" face="Trebuchet MS" color="red">x_train = list()<br>
+    &nbsp;&nbsp;&nbsp; t_train = list() </font><font color="red"></font></p>
+<p><font size="3" face="Trebuchet MS" color="red">&nbsp;&nbsp;&nbsp;&nbsp;x_test = list()<br>
+    &nbsp;&nbsp;&nbsp; t_test = list() </font></p>
+<p><font size="3" face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;<br>
+    &nbsp;&nbsp;&nbsp; with open(filename, 'r') as file:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; csv_reader = reader(file)<br>
+    &nbsp;&nbsp;&nbsp; </font><font size="3" face="Trebuchet MS" color="red">(여기에 코드 작성)<br>
+      &nbsp;&nbsp;&nbsp; 읽어 온 자료를 numpy 배열로 바꾸고 이 때 x_train과 y_train은 각각
+      float형과 int형으로 한다. 80%를 훈련자료로, 20%를 시험자료로 나누고 &nbsp;훈련자료와 정답을 분리<br>
+      &nbsp;&nbsp;&nbsp; 참고: 강의 자료 중 </font><font size="3" face="Trebuchet MS"><br>
+    </font><a
+href="https://machinelearningmastery.com/implement-simple-linear-regression-scratch-python/"
+        style="color: rgb(0, 136, 204); text-decoration: none;
+        font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial,
+        sans-serif; font-size: 13px; font-style: normal;
+        font-variant-caps: normal; font-weight: normal; letter-spacing:
+        normal; orphans: auto; text-align: left; text-indent: 0px;
+        text-transform: none; white-space: normal; widows: auto;
+        word-spacing: 0px; -webkit-text-size-adjust: auto;
+        -webkit-text-stroke-width: 0px;"><font size="3" face="Trebuchet MS" color="blue">How to Implement Simple Linear Regression From
+          Scratch with Python</font></a><font size="3" face="Trebuchet MS" color="red"> 참조<br>
+      <br>
+    </font><font size="3" face="Trebuchet MS">&nbsp;&nbsp;&nbsp; </font><font size="3" face="Trebuchet MS" color="red">return x_train, t_train, x_test, t_test</font><font size="3" face="Trebuchet MS"><br>
+    <br>
+    def one_hot_encoding(x):<br>
+    &nbsp;<br>
+    &nbsp; &nbsp; &nbsp;</font><font size="3" face="Trebuchet MS" color="red"> t_train, t_test&nbsp;정답 값을 one-hot
+      encoding으로 변형. sklearn, pandas, keras 등에서 제공하는 모듈을 쓰지말고 numpy로 구현해
+      볼 것&nbsp; <br>
+    </font><font size="3" face="Trebuchet MS">        <br>
+    def sigmoid(x):<br>
+    &nbsp;&nbsp;&nbsp; return 1 / (1 + np.exp(-x))<br>
+    <br>
+    def softmax(x):<br>
+    &nbsp;&nbsp;&nbsp; if x.ndim == 2:<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = x.T<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x = x - np.max(x, axis=0)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; y = np.exp(x) /
+    np.sum(np.exp(x), axis=0)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return y.T<br>
+    <br>
+    &nbsp;&nbsp;&nbsp; x = x - np.max(x) # 오버플로 대책<br>
+    &nbsp;&nbsp;&nbsp; return np.exp(x) / np.sum(np.exp(x))<br>
+    <br>
+    <br>
+    filename = '</font><font size="3" face="Trebuchet MS" color="red">SimpleNetData2.csv</font><font size="3" face="Trebuchet MS">'<br>
+    </font><font size="3" face="Trebuchet MS" color="red">x_train, t_train, x_test, t_test= load_csv(filename)<br>
+    x_train = one_hot_encoding(x_train)</font><font color="red"></font></p>
+<p><font size="3" face="Trebuchet MS" color="red">t_test = one_hot_encoding(t_test)</font></p>
+<p><font face="Trebuchet MS">network = TwoLayerNet(input_size=200, hidden_size=50, output_size=10)</font></p>
+<p><font face="Trebuchet MS">&nbsp;</font></p>
+<p><font face="Trebuchet MS"># 하이퍼파라미터</font></p>
+<p><font face="Trebuchet MS">iters_num = 10000 &nbsp;# 반복 횟수를 적절히 설정한다.</font></p>
+<p><font face="Trebuchet MS">train_size = x_train.shape[0]</font></p>
+<p><font face="Trebuchet MS">batch_size = 100 &nbsp;&nbsp;# 미니배치 크기</font></p>
+<p><font face="Trebuchet MS">learning_rate = 0.1</font></p>
+<p><font face="Trebuchet MS">&nbsp;</font></p>
+<p><font face="Trebuchet MS">train_loss_list = []</font></p>
+<p><font face="Trebuchet MS">train_acc_list = []</font></p>
+<p><font face="Trebuchet MS">test_acc_list = []</font></p>
+<p><font face="Trebuchet MS">&nbsp;</font></p>
+<p><font face="Trebuchet MS"># 1에폭당 반복 수</font></p>
+<p><font face="Trebuchet MS">iter_per_epoch = max(train_size / batch_size, 1)</font></p>
+<p><font face="Trebuchet MS">&nbsp;</font></p>
+<p><font face="Trebuchet MS">for i in range(iters_num):</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;# 미니배치 획득</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;batch_mask = np.random.choice(train_size, batch_size)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;x_batch = x_train[batch_mask]</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;t_batch = t_train[batch_mask]</font></p>
+<p><font face="Trebuchet MS">&nbsp;</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;# 기울기 계산</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;#grad = network.numerical_gradient(x_batch, t_batch)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;grad = network.gradient(x_batch, t_batch)</font></p>
+<p><font face="Trebuchet MS">&nbsp;</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;# 매개변수 갱신</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;for key in ('W1', 'b1', 'W2', 'b2'):</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;network.params[key] -= learning_rate * grad[key]</font></p>
+<p><font face="Trebuchet MS">&nbsp;</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;# 학습 경과 기록</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;loss = network.loss(x_batch, t_batch)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;train_loss_list.append(loss)</font></p>
+<p><font face="Trebuchet MS">&nbsp;</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;# 1에폭당 정확도 계산</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;if i % iter_per_epoch == 0:</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;train_acc = network.accuracy(x_train, t_train)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test_acc = network.accuracy(x_test, t_test)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;train_acc_list.append(train_acc)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;test_acc_list.append(test_acc)</font></p>
+<p><font face="Trebuchet MS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(&quot;train acc, test acc | &quot; + str(train_acc) + &quot;, &quot; + str(test_acc))</font></p>
+  </body>
+</html>
