@@ -5,7 +5,6 @@
 #Submitted: 19 March, 2018
 #Python v3.6.4
 
-
 import re
 import nltk
 import time
@@ -136,11 +135,10 @@ mle_probabiliy_smoothOne = multiply(mle_bigram_prob_list_smoothOne)
 #List of counts of test sentence bigrams
 bigram_prob_list = []
 
-#P(bigram) = C(bigram) / C(bigrams count all)
+#P = P(word+1 | word) * ...
 for b in testSentenceBigram:
-    word_a_count = unigram_dict.get(b[0])
-    word_b_count = unigram_dict.get(b[1])
-    bigram_prob = word_b_count / word_a_count
+    bigram_a_count = bigram_dict.get(b)
+    bigram_prob = bigram_a_count / bigrams_total
     bigram_prob_list.append(bigram_prob)
 
 bigram_probability = multiply(bigram_prob_list)
