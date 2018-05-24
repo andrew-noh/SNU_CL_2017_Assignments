@@ -1,0 +1,22 @@
+MLP One Step
+Accuracy: 0.9672131147540983
+Prediction marked (* - wrong note) ['a_oct1_3', 'd_oct2_2', 'c_oct2_1', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2_legSt', 'a_oct1_1_legEnd', 'd_oct1_2_legSt', 'e_oct1_1_legEnd', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', '**d_oct2_2_legSt', 'f_oct1_1_legEnd', '**g_oct1_2', 'd_oct2_1', 'a_oct1_2', 'g_oct1_1', 'f_oct1_3', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1_legSt', 'd_oct1_1_legEnd', 'c_oct1_1', 'b_oct0_3', 'd_oct1_2', 'e_oct1_1', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'd_oct2_2_legSt', 'c_oct2_1_legEnd', 'e_oct2_2', 'd_oct2_1', 'c_oct2_1', 'b_oct1_1', 'a_oct1_1', 'f_oct1_3', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'e_oct1_1', 'g_oct1_1', 'f_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1']
+====================================================================================================
+
+
+MLP Full Song
+Accuracy: 0.2459016393442623
+Prediction marked (* - wrong note) ['a_oct1_3', 'd_oct2_2', 'c_oct2_1', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2_legSt', 'a_oct1_1_legEnd', 'd_oct1_2_legSt', 'e_oct1_1_legEnd', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', '**d_oct2_2_legSt', '**c_oct2_1_legEnd', '**e_oct2_2', 'd_oct2_1', '**c_oct2_1', '**b_oct1_1', '**a_oct1_1', '**f_oct1_3', '**e_oct1_1', '**b_oct1_1', '**a_oct1_1', '**e_oct1_1', '**g_oct1_1', '**f_oct1_1', '**d_oct1_3_legSt', '**d_oct1_2_legEnd', '**pause_1', '**e_oct1_2_legSt', '**f_oct1_1_legEnd', '**g_oct1_2', '**f_oct1_1', '**e_oct1_1_legSt', '**d_oct1_1_legEnd', '**c_oct1_1', '**b_oct0_3', '**d_oct1_2', '**e_oct1_1', '**f_oct1_2', '**b_oct1_1', '**a_oct1_3_legSt', '**a_oct1_2_legEnd', '**pause_1', '**d_oct2_2_legSt', '**c_oct2_1_legEnd', '**e_oct2_2', '**d_oct2_1', '**c_oct2_1', '**b_oct1_1', '**a_oct1_1', '**f_oct1_3', '**e_oct1_1', '**b_oct1_1', '**a_oct1_1', '**e_oct1_1', '**g_oct1_1', '**f_oct1_1', '**d_oct1_3_legSt']
+====================================================================================================
+
+
+LSTM One Step
+Accuracy: 0.9672131147540983
+Prediction marked (* - wrong note) ['a_oct1_3', 'd_oct2_2', 'c_oct2_1', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2_legSt', 'a_oct1_1_legEnd', 'd_oct1_2_legSt', 'e_oct1_1_legEnd', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'f_oct1_2_legSt', 'f_oct1_1_legEnd', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2', 'g_oct1_1', 'f_oct1_3', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', '**d_oct2_1', 'e_oct1_1_legSt', 'd_oct1_1_legEnd', 'c_oct1_1', 'b_oct0_3', 'd_oct1_2', 'e_oct1_1', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', '**f_oct1_2_legSt', 'c_oct2_1_legEnd', 'e_oct2_2', 'd_oct2_1', 'c_oct2_1', 'b_oct1_1', 'a_oct1_1', 'f_oct1_3', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'e_oct1_1', 'g_oct1_1', 'f_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1']
+====================================================================================================
+
+
+LSTM Full Song
+Accuracy: 0.5737704918032787
+Prediction marked (* - wrong note) ['a_oct1_3', 'd_oct2_2', 'c_oct2_1', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2_legSt', 'a_oct1_1_legEnd', 'd_oct1_2_legSt', 'e_oct1_1_legEnd', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'f_oct1_2_legSt', 'f_oct1_1_legEnd', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2', 'g_oct1_1', 'f_oct1_3', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', '**d_oct2_1', '**a_oct1_2', '**g_oct1_1', '**f_oct1_3', '**g_oct1_2', '**f_oct1_1', 'e_oct1_1', '**b_oct1_1', '**a_oct1_1', '**d_oct1_3_legSt', '**d_oct1_2_legEnd', 'pause_1', '**e_oct1_2_legSt', '**f_oct1_1_legEnd', '**g_oct1_2', 'd_oct2_1', '**a_oct1_2', '**g_oct1_1', '**f_oct1_3', '**g_oct1_2', '**f_oct1_1', '**e_oct1_1', '**b_oct1_1', '**a_oct1_1', '**d_oct1_3_legSt', '**d_oct1_2_legEnd', '**pause_1', '**e_oct1_2_legSt', '**f_oct1_1_legEnd']
+====================================================================================================

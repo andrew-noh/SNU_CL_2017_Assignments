@@ -1,0 +1,74 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21000\viewh13660\viewkind0
+\deftab720
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\fs28 \cf2 \cb3 \expnd0\expndtw0\kerning0
+Original Data:\
+seq = ['a_oct1_3', 'd_oct2_2', 'c_oct2_1', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2_legSt', 'a_oct1_1_legEnd', 'd_oct1_2_legSt', 'e_oct1_1_legEnd', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'f_oct1_2_legSt', 'f_oct1_1_legEnd', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2', 'g_oct1_1', 'f_oct1_3', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1_legSt', 'd_oct1_1_legEnd', 'c_oct1_1', 'b_oct0_3', 'd_oct1_2', 'e_oct1_1', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'd_oct2_2_legSt', 'c_oct2_1_legEnd', 'e_oct2_2', 'd_oct2_1', 'c_oct2_1', 'b_oct1_1', 'a_oct1_1', 'f_oct1_3', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'e_oct1_1', 'g_oct1_1', 'f_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1']\
+\
+seq = ['a13n', 'd22n', 'c21n', 'b12n', 'd21n', 'a12s', 'a11e', 'd12s','e11e', 'f12n', 'b11n', 'a13s', 'a12e', 'x01n', 'f12s', 'f11e', 'b12n', 'd21n', 'a12n', 'g11n', 'f13n', 'g12n', 'f11n', 'e11n', 'b11n', 'a11n', 'd13s', 'd12e', 'x01n', 'e12s', 'f11e', 'g12n', 'f11n', 'e11s', 'd11e', 'c11n', 'b03n', 'd12n', 'e11n', 'f12n', 'b11n', 'a13s', 'a12e', 'x01n', 'd22s', 'c21e', 'e22n', 'd21n', 'c21n', 'b11n', 'a11n', 'f13n', 'e11n', 'b11n', 'a11n', 'e11n', 'g11n', 'f11n', 'd13s', 'd12e', 'x01n']\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\b \cf2 \
+\
+MLP Prediction 
+\f0\b0 \
+\
+57/57 [==============================] - 0s 629us/step\
+acc: 96.49%\
+\
+one step prediction (Accuracy: 96.72%):  ['a_oct1_3', 'd_oct2_2', 'c_oct2_1', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2_legSt', 'a_oct1_1_legEnd', 'd_oct1_2_legSt', 'e_oct1_1_legEnd', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'd_oct2_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', 'd_oct2_1', 'a_oct1_2', 'g_oct1_1', 'f_oct1_3', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1_legSt', 'd_oct1_1_legEnd', 'c_oct1_1', 'b_oct0_3', 'd_oct1_2', 'e_oct1_1', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'd_oct2_2_legSt', 'c_oct2_1_legEnd', 'e_oct2_2', 'd_oct2_1', 'c_oct2_1', 'b_oct1_1', 'a_oct1_1', 'f_oct1_3', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'e_oct1_1', 'g_oct1_1', 'f_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1']\
+\
+full song prediction (Accuracy: 24.6%):  ['a_oct1_3', 'd_oct2_2', 'c_oct2_1', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2_legSt', 'a_oct1_1_legEnd', 'd_oct1_2_legSt', 'e_oct1_1_legEnd', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'd_oct2_2_legSt', 'c_oct2_1_legEnd', 'e_oct2_2', 'd_oct2_1', 'c_oct2_1', 'b_oct1_1', 'a_oct1_1', 'f_oct1_3', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'e_oct1_1', 'g_oct1_1', 'f_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1_legSt', 'd_oct1_1_legEnd', 'c_oct1_1', 'b_oct0_3', 'd_oct1_2', 'e_oct1_1', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'd_oct2_2_legSt', 'c_oct2_1_legEnd', 'e_oct2_2', 'd_oct2_1', 'c_oct2_1', 'b_oct1_1', 'a_oct1_1', 'f_oct1_3', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'e_oct1_1', 'g_oct1_1', 'f_oct1_1', 'd_oct1_3_legSt']\
+\
+\
+
+\f1\b LSTM Prediction \
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\b0 \cf2 \
+57/57 [==============================] - 0s 2ms/step\
+acc: 96.49%\
+\
+one step prediction (Accuracy: 96.72%):  ['a_oct1_3', 'd_oct2_2', 'c_oct2_1', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2_legSt', 'a_oct1_1_legEnd', 'd_oct1_2_legSt', 'e_oct1_1_legEnd', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'f_oct1_2_legSt', 'f_oct1_1_legEnd', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2', 'g_oct1_1', 'f_oct1_3', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', 'd_oct2_1', 'e_oct1_1_legSt', 'd_oct1_1_legEnd', 'c_oct1_1', 'b_oct0_3', 'd_oct1_2', 'e_oct1_1', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'f_oct1_2_legSt', 'c_oct2_1_legEnd', 'e_oct2_2', 'd_oct2_1', 'c_oct2_1', 'b_oct1_1', 'a_oct1_1', 'f_oct1_3', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'e_oct1_1', 'g_oct1_1', 'f_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1']\
+\
+full song prediction (Accuracy: 57.37%):  ['a_oct1_3', 'd_oct2_2', 'c_oct2_1', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2_legSt', 'a_oct1_1_legEnd', 'd_oct1_2_legSt', 'e_oct1_1_legEnd', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'f_oct1_2_legSt', 'f_oct1_1_legEnd', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2', 'g_oct1_1', 'f_oct1_3', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', 'd_oct2_1', 'a_oct1_2', 'g_oct1_1', 'f_oct1_3', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', 'd_oct2_1', 'a_oct1_2', 'g_oct1_1', 'f_oct1_3', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd']\
+\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\b \cf2 LSTM Stateful Prediction (Accuracy: 96.72%)\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f0\b0 \cf2 57/57 [==============================] - 0s 3ms/step\
+acc: 100.00%\
+\
+one step prediction (Accuracy: 100%):  ['a_oct1_3', 'd_oct2_2', 'c_oct2_1', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2_legSt', 'a_oct1_1_legEnd', 'd_oct1_2_legSt', 'e_oct1_1_legEnd', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'f_oct1_2_legSt', 'f_oct1_1_legEnd', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2', 'g_oct1_1', 'f_oct1_3', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1_legSt', 'd_oct1_1_legEnd', 'c_oct1_1', 'b_oct0_3', 'd_oct1_2', 'e_oct1_1', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'd_oct2_2_legSt', 'c_oct2_1_legEnd', 'e_oct2_2', 'd_oct2_1', 'c_oct2_1', 'b_oct1_1', 'a_oct1_1', 'f_oct1_3', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'e_oct1_1', 'g_oct1_1', 'f_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1']\
+\
+full song prediction (Accuracy: 100%):  ['a_oct1_3', 'd_oct2_2', 'c_oct2_1', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2_legSt', 'a_oct1_1_legEnd', 'd_oct1_2_legSt', 'e_oct1_1_legEnd', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'f_oct1_2_legSt', 'f_oct1_1_legEnd', 'b_oct1_2', 'd_oct2_1', 'a_oct1_2', 'g_oct1_1', 'f_oct1_3', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1', 'e_oct1_2_legSt', 'f_oct1_1_legEnd', 'g_oct1_2', 'f_oct1_1', 'e_oct1_1_legSt', 'd_oct1_1_legEnd', 'c_oct1_1', 'b_oct0_3', 'd_oct1_2', 'e_oct1_1', 'f_oct1_2', 'b_oct1_1', 'a_oct1_3_legSt', 'a_oct1_2_legEnd', 'pause_1', 'd_oct2_2_legSt', 'c_oct2_1_legEnd', 'e_oct2_2', 'd_oct2_1', 'c_oct2_1', 'b_oct1_1', 'a_oct1_1', 'f_oct1_3', 'e_oct1_1', 'b_oct1_1', 'a_oct1_1', 'e_oct1_1', 'g_oct1_1', 'f_oct1_1', 'd_oct1_3_legSt', 'd_oct1_2_legEnd', 'pause_1']\
+\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\b \cf2 LSTM With Four Features Prediction (Accuracy: 96.72%)
+\f0\b0 \
+\
+\pard\pardeftab720\sl320\partightenfactor0
+\cf2 \cb3 57/57 [==============================] - 0s 6ms/step\
+acc: 100.00%\
+\
+one step prediction (Accuracy: 100%):  ['a13n', 'd22n', 'c21n', 'b12n', 'd21n', 'a12s', 'a11e', 'd12s', 'e11e', 'f12n', 'b11n', 'a13s', 'a12e', 'x01n', 'f12s', 'f11e', 'b12n', 'd21n', 'a12n', 'g11n', 'f13n', 'g12n', 'f11n', 'e11n', 'b11n', 'a11n', 'd13s', 'd12e', 'x01n', 'e12s', 'f11e', 'g12n', 'f11n', 'e11s', 'd11e', 'c11n', 'b03n', 'd12n', 'e11n', 'f12n', 'b11n', 'a13s', 'a12e', 'x01n', 'd22s', 'c21e', 'e22n', 'd21n', 'c21n', 'b11n', 'a11n', 'f13n', 'e11n', 'b11n', 'a11n', 'e11n', 'g11n', 'f11n', 'd13s', 'd12e', 'x01n']\
+================================================================================\
+Expanded code :  ['A_Octave1_length3', 'D_Octave2_length2', 'C_Octave2_length1', 'B_Octave1_length2', 'D_Octave2_length1', 'A_Octave1_length2_legatoStart', 'A_Octave1_length1_legatoEnd', 'D_Octave1_length2_legatoStart', 'E_Octave1_length1_legatoEnd', 'F_Octave1_length2', 'B_Octave1_length1', 'A_Octave1_length3_legatoStart', 'A_Octave1_length2_legatoEnd', 'Pause_1', 'F_Octave1_length2_legatoStart', 'F_Octave1_length1_legatoEnd', 'B_Octave1_length2', 'D_Octave2_length1', 'A_Octave1_length2', 'G_Octave1_length1', 'F_Octave1_length3', 'G_Octave1_length2', 'F_Octave1_length1', 'E_Octave1_length1', 'B_Octave1_length1', 'A_Octave1_length1', 'D_Octave1_length3_legatoStart', 'D_Octave1_length2_legatoEnd', 'Pause_1', 'E_Octave1_length2_legatoStart', 'F_Octave1_length1_legatoEnd', 'G_Octave1_length2', 'F_Octave1_length1', 'E_Octave1_length1_legatoStart', 'D_Octave1_length1_legatoEnd', 'C_Octave1_length1', 'B_Octave0_length3', 'D_Octave1_length2', 'E_Octave1_length1', 'F_Octave1_length2', 'B_Octave1_length1', 'A_Octave1_length3_legatoStart', 'A_Octave1_length2_legatoEnd', 'Pause_1', 'D_Octave2_length2_legatoStart', 'C_Octave2_length1_legatoEnd', 'E_Octave2_length2', 'D_Octave2_length1', 'C_Octave2_length1', 'B_Octave1_length1', 'A_Octave1_length1', 'F_Octave1_length3', 'E_Octave1_length1', 'B_Octave1_length1', 'A_Octave1_length1', 'E_Octave1_length1', 'G_Octave1_length1', 'F_Octave1_length1', 'D_Octave1_length3_legatoStart', 'D_Octave1_length2_legatoEnd', 'Pause_1'] \
+\
+full song prediction (Accuracy: 100%):  ['a13n', 'd22n', 'c21n', 'b12n', 'd21n', 'a12s', 'a11e', 'd12s', 'e11e', 'f12n', 'b11n', 'a13s', 'a12e', 'x01n', 'f12s', 'f11e', 'b12n', 'd21n', 'a12n', 'g11n', 'f13n', 'g12n', 'f11n', 'e11n', 'b11n', 'a11n', 'd13s', 'd12e', 'x01n', 'e12s', 'f11e', 'g12n', 'f11n', 'e11s', 'd11e', 'c11n', 'b03n', 'd12n', 'e11n', 'f12n', 'b11n', 'a13s', 'a12e', 'x01n', 'd22s', 'c21e', 'e22n', 'd21n', 'c21n', 'b11n', 'a11n', 'f13n', 'e11n', 'b11n', 'a11n', 'e11n', 'g11n', 'f11n', 'd13s', 'd12e', 'x01n']\
+================================================================================\
+Expanded code :  ['A_Octave1_length3', 'D_Octave2_length2', 'C_Octave2_length1', 'B_Octave1_length2', 'D_Octave2_length1', 'A_Octave1_length2_legatoStart', 'A_Octave1_length1_legatoEnd', 'D_Octave1_length2_legatoStart', 'E_Octave1_length1_legatoEnd', 'F_Octave1_length2', 'B_Octave1_length1', 'A_Octave1_length3_legatoStart', 'A_Octave1_length2_legatoEnd', 'Pause_1', 'F_Octave1_length2_legatoStart', 'F_Octave1_length1_legatoEnd', 'B_Octave1_length2', 'D_Octave2_length1', 'A_Octave1_length2', 'G_Octave1_length1', 'F_Octave1_length3', 'G_Octave1_length2', 'F_Octave1_length1', 'E_Octave1_length1', 'B_Octave1_length1', 'A_Octave1_length1', 'D_Octave1_length3_legatoStart', 'D_Octave1_length2_legatoEnd', 'Pause_1', 'E_Octave1_length2_legatoStart', 'F_Octave1_length1_legatoEnd', 'G_Octave1_length2', 'F_Octave1_length1', 'E_Octave1_length1_legatoStart', 'D_Octave1_length1_legatoEnd', 'C_Octave1_length1', 'B_Octave0_length3', 'D_Octave1_length2', 'E_Octave1_length1', 'F_Octave1_length2', 'B_Octave1_length1', 'A_Octave1_length3_legatoStart', 'A_Octave1_length2_legatoEnd', 'Pause_1', 'D_Octave2_length2_legatoStart', 'C_Octave2_length1_legatoEnd', 'E_Octave2_length2', 'D_Octave2_length1', 'C_Octave2_length1', 'B_Octave1_length1', 'A_Octave1_length1', 'F_Octave1_length3', 'E_Octave1_length1', 'B_Octave1_length1', 'A_Octave1_length1', 'E_Octave1_length1', 'G_Octave1_length1', 'F_Octave1_length1', 'D_Octave1_length3_legatoStart', 'D_Octave1_length2_legatoEnd', 'Pause_1']\
+\
+\
+}
